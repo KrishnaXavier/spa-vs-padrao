@@ -1,0 +1,20 @@
+:root{
+	--cor-tem:#2DE984;
+	--cor-tem-cla:#4Dffa4;
+	--cor-tex:#E0FFE0;
+	--cor-esc:#070811;	
+	--cor-cla:#614f88;
+	
+}
+
+nav {
+	background-color: var(--cor-tem) !important;
+}
+
+nav .brand-logo{
+	color: var(--cor-cla) !important;
+}
+
+nav ul a{
+	color: var(--cor-cla) !important;	
+}
