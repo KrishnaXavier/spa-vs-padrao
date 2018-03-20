@@ -1,7 +1,4 @@
 <?php
 require_once "inc.header.php";
+require_once "home.php";
 ?>
-
-<div id="saida-dados">
-	<h1>Home</h1>
-</div>
