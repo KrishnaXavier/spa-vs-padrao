@@ -49,8 +49,8 @@ require_once "inc.header.php";
 					<tr>
 						<td>noticias</td>
 
-						<td>1</td>
-						<td>2KB</td>
+						<td>4</td>
+						<td>370KB</td>
 
 						<td>10</td>
 						<td>701KB</td>
@@ -60,7 +60,7 @@ require_once "inc.header.php";
 						<td>cadastro</td>
 
 						<td>1</td>
-						<td>2KB</td>
+						<td>1.8KB</td>
 
 						<td>7</td>
 						<td>403KB</td>
