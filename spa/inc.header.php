@@ -13,32 +13,97 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script type="text/javascript">
+		ultRequisao = {"pagina": "", "hash": ""}
+
 		function carregarPagina(pagina){
-			$.ajax({
-				url: pagina,
-				type: 'GET'
-			})
-			.done(function(data) {
-				console.log("success");
-
-				$("#saida-dados")[0].innerHTML = data;				
-			})
-			.fail(function() {
-				console.log("error");
-			})
-			.always(function() {
-				console.log("complete");
-			});
 			
-		}
-	</script>
+			if(ultRequisao["pagina"] != pagina){
 
-	<nav>
-		<div class="nav-wrapper">
-			<a href="#" onclick="carregarPagina('home.php')" class="brand-logo">HOME</a>
-			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="#" onclick="carregarPagina('noticias.php')">Notícias</a></li>
-				<li><a href="#" onclick="carregarPagina('entrar.php')">Entrar</a></li>				
-			</ul>
-		</div>
-	</nav>
+				ultRequisao["pagina"] = pagina
+
+				console.log("carregando nova pagina")
+
+				$.ajax({
+					url: pagina,
+					type: 'GET'
+				})
+				.done(function(data) {
+					console.log("ajax success")
+					$("#saida-dados")[0].innerHTML = data
+					ultRequisao["hash"] = hashFnv32a(data, 1, 1)
+										
+				})
+				.fail(function() {
+					console.log("error");
+				})
+				.always(function() {
+					console.log("complete");
+				});
+
+			}else{
+				console.log("A pagina requisitada é a atual, vamos verificar se ouve alteração no codigo dessa pagina.");
+
+				$.ajax({
+					url: pagina,
+					type: 'GET'
+				})
+				.done(function(data) {
+					console.log("success")
+
+					let hashPag = hashFnv32a(data, 1, 1)
+
+					if(ultRequisao["hash"] != hashPag){
+						$("#saida-dados")[0].innerHTML = data
+						ultRequisao["hash"] = hashFnv32a(data, 1, 1)
+						console.log("nova hash da "+pagina+" : "+ultRequisao["hash"]);
+						console.log("pagina carregada")
+					}else{
+						console.log("A pagina que deseja carregar não precisa ser carregada por que ela não tem alterações.")
+					}
+										
+				})
+				.fail(function() {
+					console.log("error");
+				})
+				.always(function() {
+					console.log("complete");
+				});
+			}
+		}
+
+		/*
+		Calculate a 32 bit FNV-1a hash
+		Found here: https://gist.github.com/vaiorabbit/5657561
+		Ref.: http://isthe.com/chongo/tech/comp/fnv/
+				@param {string} str the input value
+		@param {boolean} [asString=false] set to true to return the hash value as 
+		    8-digit hex string instead of an integer
+		@param {integer} [seed] optionally pass the hash of the previous chunk
+		@returns {integer | string}
+		*/
+		function hashFnv32a(str, asString, seed) {
+			/*jshint bitwise:false */
+			let i, l,
+			hval = (seed === undefined) ? 0x811c9dc5 : seed;
+
+			for (i = 0, l = str.length; i < l; i++) {
+				hval ^= str.charCodeAt(i);
+				hval += (hval << 1) + (hval << 4) + (hval << 7) + (hval << 8) + (hval << 24);
+			}
+			if( asString ){
+        		// Convert to 8 digit hex string
+        		return ("0000000" + (hval >>> 0).toString(16)).substr(-8);
+        	}
+        	return hval >>> 0;
+        }
+    </script>
+
+    <nav>
+    	<div class="nav-wrapper">
+    		<a href="#!/inicio" onclick="carregarPagina('home.php')" class="brand-logo">HOME</a>
+    		<ul id="nav-mobile" class="right hide-on-med-and-down">
+    			<li><a href="#!/noticias" onclick="carregarPagina('noticias.php')">Notícias</a></li>
+    			<li><a href="#!/entrar" onclick="carregarPagina('entrar.php')">Entrar</a></li>				
+    		</ul>
+    	</div>
+    </nav>
