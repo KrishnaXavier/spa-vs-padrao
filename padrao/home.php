@@ -26,15 +26,15 @@ require_once "inc.header.php";
 
 				<tbody>
 					
-					<tr>
+					<!-- <tr>
 						<td>index</td>
 
 						<td>7</td>
 						<td>401KB</td>
 
 						<td>7</td>
-						<td>401KB</td>
-					</tr>
+						<td>697,442KB</td>
+					</tr> -->
 					
 					<tr>
 						<td>home</td>
@@ -42,8 +42,8 @@ require_once "inc.header.php";
 						<td>1</td>
 						<td>2KB</td>
 
-						<td>7</td>
-						<td>401KB</td>
+						<td>8</td>
+						<td>697,442 KB</td>
 					</tr>
 
 					<tr>
@@ -53,7 +53,7 @@ require_once "inc.header.php";
 						<td>370KB</td>
 
 						<td>10</td>
-						<td>701KB</td>
+						<td>1029,069 KB</td>
 					</tr>
 
 					<tr>
@@ -63,7 +63,7 @@ require_once "inc.header.php";
 						<td>1.8KB</td>
 
 						<td>7</td>
-						<td>403KB</td>
+						<td>634,169 KB</td>
 					</tr>
 
 				</tbody>
