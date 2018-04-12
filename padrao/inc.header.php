@@ -15,7 +15,7 @@
 
 	<nav>
 		<div class="nav-wrapper">
-			<a href="index.php" class="brand-logo">HOME</a>
+			<a href="index.php" class="brand-logo">padrão</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="noticias.php">Notícias</a></li>
 				<li><a href="entrar.php">Entrar</a></li>				

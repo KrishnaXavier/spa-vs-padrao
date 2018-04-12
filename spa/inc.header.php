@@ -90,7 +90,7 @@
 
     <nav>
     	<div class="nav-wrapper">
-    		<a href="#!/inicio" onclick="carregarPagina('home.php')" class="brand-logo">HOME</a>
+    		<a href="#!/inicio" onclick="carregarPagina('home.php')" class="brand-logo">SPA</a>
     		<ul id="nav-mobile" class="right hide-on-med-and-down">
     			<li><a href="#!/noticias" onclick="carregarPagina('noticias.php')">Notícias</a></li>
     			<li><a href="#!/entrar" onclick="carregarPagina('entrar.php')">Entrar</a></li>				
