@@ -12,7 +12,7 @@
 			<div class="card">
 				<div class="card-image">
 					<img src="sample-1.jpg">
-					<span class="card-title">lULA FOI PRESO</span>
+					<span class="card-title">Noticia 1 - EDIÇÃO</span>
 				</div>
 				<div class="card-content">
 					<p>Texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto texto.</p>
